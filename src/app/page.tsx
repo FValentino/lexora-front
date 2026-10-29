@@ -1,6 +1,12 @@
+"use client"
+import {useState} from "react"
 import Image from "next/image";
+import Estudiante from "./Componente"
 
 export default function Home() {
+
+  const [mostrarEstudiante, setMostrarEstudiante] = useState<boolean>(false);
+
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
@@ -20,6 +26,20 @@ export default function Home() {
             </code>{" "}
             file.
           </h1>
+          
+          <button className="border-2 border-white rouded bg-white text-black cursor-pointer"
+            onClick={()=>{
+              const visibilidadEstudiante = !mostrarEstudiante; 
+              setMostrarEstudiante(visibilidadEstudiante)
+            }} 
+          > 
+              {mostrarEstudiante ? "ocultar estudiante" : "mostrar estudiante"}
+          </button>
+
+          <div className={` w-full bg-white ${mostrarEstudiante ? "visible" : "hidden"} `}>
+            <Estudiante/>
+          </div>
+
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             Looking for a starting point or more instructions? Head over to{" "}
             <a
