@@ -1,5 +1,5 @@
 export default function LibraryPage(){
     return(
-        <h1>Aquí iran las bibliotecas</h1>
+        <h1>Aquí irán las bibliotecas</h1>
     );
 }

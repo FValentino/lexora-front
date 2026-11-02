@@ -1,5 +1,5 @@
 export default function CasesPage(){
     return(
-        <h1>Acá irian los casos</h1>
+        <h1>Acá irán los casos</h1>
     );
 }
