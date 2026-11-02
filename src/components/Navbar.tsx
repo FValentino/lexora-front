@@ -1,11 +1,26 @@
-import Link from "next/link";
+"use client";
 
-export default function Navbar(){
-    return(
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const links = [
+    { href: "/casos", label: "Casos" },
+    { href: "/documentos", label: "Documentos" },
+    { href: "/biblioteca", label: "Biblioteca" }
+]
+
+export default function Navbar() {
+    const pathname = usePathname();
+
+    return (
         <nav>
-            <Link href="/casos">Casos</Link>
-            <Link href="/documentos">Documentos</Link>
-            <Link href="/biblioteca">Biblioteca</Link>
+            {links.map((link) => (
+                <Link key={link.href}
+                    href={link.href}
+                    className={pathname === link.href ? "font-bold" : ""}>
+                    {link.label}
+                </Link>
+            ))}
         </nav>
     );
 }
