@@ -27,7 +27,7 @@ export default function Home() {
             file.
           </h1>
           
-          <button className="border-2 border-white rouded bg-white text-black cursor-pointer"
+          <button className="border-2 border-white rounded bg-white text-black cursor-pointer"
             onClick={()=>{
               const visibilidadEstudiante = !mostrarEstudiante; 
               setMostrarEstudiante(visibilidadEstudiante)
