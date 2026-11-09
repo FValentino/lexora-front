@@ -1,17 +1,31 @@
 "use client";
 
+import { useState } from "react";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 
 export default function LoginForm() {
-    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
         const formData = new FormData(event.currentTarget);
         const email = formData.get("email");
         const password = formData.get("password");
 
-        console.log({ email, password });
+        setError(null);
+        setIsLoading(true);
+
+        // SIMULACIÓN: en la parte 3 esto se reemplaza por el pedido a la API
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+
+        if (email !== "test@lexora.com" || password !== "1234") {
+            setError("Email o contraseña incorrectos");
+        }
+
+        setIsLoading(false);
     }
 
     return (
@@ -29,7 +43,9 @@ export default function LoginForm() {
                 type="password"
                 required
             />
-            <Button type="submit">Ingresar</Button>
+            {error && <p role="alert">{error}</p>}
+            <Button type="submit" disabled={isLoading}>{isLoading ? "Ingresando..." : "Ingresar"}
+            </Button>
         </form>
     );
 }
