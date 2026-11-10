@@ -1,5 +1,13 @@
+import EmptyState from "@/components/ui/EmptyState";
+
 export default function DocumentsPage() {
     return(
-        <h1>Aquí irán los documentos</h1>
+        <>
+            <h1>Documentos</h1>
+            <EmptyState
+                title="Todavía no hay documentos"
+                description=""
+            />
+        </>
     );
 }
