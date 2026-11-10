@@ -3,10 +3,12 @@
 import { useState } from "react";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const router = useRouter();
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -18,14 +20,29 @@ export default function LoginForm() {
         setError(null);
         setIsLoading(true);
 
-        // SIMULACIÓN: en la parte 3 esto se reemplaza por el pedido a la API
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        try {
+            const response = await fetch("/api/v1/auth/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify({ email, password }),
+            });
 
-        if (email !== "test@lexora.com" || password !== "1234") {
-            setError("Email o contraseña incorrectos");
+            if (response.ok) {
+                router.push("/casos");
+                return;
+            }
+
+            if (response.status === 401) {
+                setError("Email o contraseña incorrectos");
+            } else {
+                setError("Ocurrió un error. Intenta de nuevo.");
+            }
+        } catch {
+            setError("No se pudo conectar con el servidor");
+        } finally {
+            setIsLoading(false);
         }
-
-        setIsLoading(false);
     }
 
     return (
