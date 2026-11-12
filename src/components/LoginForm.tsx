@@ -46,23 +46,25 @@ export default function LoginForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <Input
-                label="Email"
-                name="email"
-                type="email"
-                placeholder="tu@email.com"
-                required
-            />
-            <Input
-                label="Contraseña"
-                name="password"
-                type="password"
-                required
-            />
-            {error && <p role="alert">{error}</p>}
-            <Button type="submit" disabled={isLoading}>{isLoading ? "Ingresando..." : "Ingresar"}
-            </Button>
-        </form>
+			<form onSubmit={handleSubmit} className="flex flex-col w-[50%] my-10">
+					
+				<Input
+					label="Email"
+					name="email"
+					type="email"
+					placeholder="tu@email.com"
+					required
+				/>
+				<Input
+						label="Contraseña"
+						name="password"
+						type="password"
+						required
+				/>
+				{error && <p role="alert">{error}</p>}
+				<Button type="submit" disabled={isLoading}>
+					{isLoading ? "Ingresando..." : "Ingresar"}
+				</Button>
+			</form>
     );
 }
