@@ -19,7 +19,7 @@ export default function Input({
 				{label} 
 			</label>
 			<input 
-				className="w-[50%] border rounded-full p-2 text-center"
+				className="w-full border rounded-full p-2 text-center"
 				id={name} 
 				name={name} 
 				type={type} 
