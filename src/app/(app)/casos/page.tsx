@@ -1,4 +1,5 @@
 import EmptyState from "@/components/ui/EmptyState";
+import { FolderIcon } from "@/components/icons";
 
 export default function CasesPage() {
     return (
@@ -7,6 +8,7 @@ export default function CasesPage() {
             <EmptyState
                 title="Todavía no hay casos"
                 description="Cuando se carguen casos, van a aparecer acá"
+                icon={<FolderIcon />}
             />
         </>
     );

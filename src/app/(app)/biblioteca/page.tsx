@@ -1,4 +1,5 @@
 import EmptyState from "@/components/ui/EmptyState";
+import { BookIcon } from "@/components/icons";
 
 export default function LibraryPage(){
     return(
@@ -7,6 +8,7 @@ export default function LibraryPage(){
             <EmptyState
                 title="La biblioteca está vacía"
                 description="Cuando se carguen recursos, van a aparecer acá"
+                icon={<BookIcon />}
             />
         </>
     );
