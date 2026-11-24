@@ -1,10 +1,20 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #112234;
+  --color-primary-dark: #0B1724;
+  --color-primary-mid: #2F5680;
+  --color-primary-light: #EEF3F8;
+  --color-accent: #672121;
+  --color-accent-dark: #521A1A;
+  --color-accent-light: #F6EAEA;
+  --color-app-bg: #F2F2F2;
+}
 
 body{
   width: 100%;
   height: auto;
-  background: #f2f2f2;
+  background: var(--color-app-bg);
   margin: 0;
   padding: 0;
 }
