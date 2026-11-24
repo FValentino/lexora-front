@@ -4,6 +4,7 @@ import { useState } from "react";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import { useRouter } from "next/navigation";
+import { AlertIcon } from "@/components/icons";
 
 export default function LoginForm() {
 	const [isLoading, setIsLoading] = useState(false);
@@ -60,7 +61,12 @@ export default function LoginForm() {
 				type="password"
 				required
 			/>
-			{error && <p role="alert" className="text-red-600 text-sm text-center">{error}</p>}
+			{error && (
+				<div role="alert" className="mb-3 flex items-center justify-center gap-2 rounded-2xl border border-red-200 bg-red-50 px-4 py-2.5 text-sm text-red-700">
+					<AlertIcon className="size-5 shrink-0 text-red-600" />
+					<span>{error}</span>
+				</div>
+			)}
 			<Button type="submit" disabled={isLoading}>
 				{isLoading ? "Ingresando..." : "Ingresar"}
 			</Button>

@@ -37,3 +37,12 @@ export function BookIcon({ className = "size-7" }: IconProps) {
         </svg>
     );
 }
+
+export function AlertIcon({ className = "size-5" }: IconProps) {
+    return (
+        <svg {...base} className={className}>
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 8v4M12 16h.01" />
+        </svg>
+    );
+}
