@@ -1,10 +1,14 @@
 import LoginForm from "@/components/LoginForm";
+import Image from "next/image";
 
 export default function LoginPage() {
   return (
     <main className="min-h-screen grid lg:grid-cols-2">
       <section className="flex flex-col justify-between gap-8 bg-linear-to-br from-primary to-primary-dark px-6 py-10 text-white md:px-12 lg:p-16">
-        <span className="text-xl font-bold">Lexora</span>
+        <span className="flex items-center gap-3 text-xl font-bold">
+          <Image src="/logo/balanza-white.svg" alt="" width={36} height={36} />
+          Lexora
+        </span>
 
         <div className="max-w-md">
           <p className="mb-4 text-3xl font-bold leading-tight lg:text-5xl">

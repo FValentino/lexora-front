@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const links = [
 	{ href: "/casos", label: "Casos" },
@@ -14,7 +15,10 @@ export default function Navbar() {
 
 	return (
 		<nav className="max-w-5xl mx-auto flex flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between md:px-8">
-			<span className="text-lg font-bold text-primary">Lexora</span>
+			<span className="flex items-center gap-2 text-lg font-bold text-primary">
+				<Image src="/logo/balanza-navy.svg" alt="" width={28} height={28} />
+				Lexora
+			</span>
 
 			<div className="flex gap-2">
 				{links.map((link) => {
