@@ -14,7 +14,7 @@ export default function Navbar() {
 
 	return (
 		<nav className="max-w-5xl mx-auto flex flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between md:px-8">
-			<span className="text-lg font-bold">Lexora</span>
+			<span className="text-lg font-bold text-primary">Lexora</span>
 
 			<div className="flex gap-2">
 				{links.map((link) => {
@@ -25,7 +25,7 @@ export default function Navbar() {
 							key={link.href}
 							href={link.href}
 							aria-current={isActive ? "page" : undefined}
-							className={`rounded-full px-4 py-1.5 text-sm transition-colors ${isActive ? "bg-neutral-900 text-neutral-100" : "text-neutral-700 hover:bg-neutral-200"}`}>
+							className={`rounded-full px-4 py-1.5 text-sm transition-colors ${isActive ? "bg-primary-light text-primary font-semibold" : "text-slate-700 hover:bg-slate-100 hover:text-slate-900"}`}>
 							{link.label}
 						</Link>
 					);
